@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { ListadoAlumnosComponent } from './components/listado-alumnos/listado-alumnos.component';
 import { FormularioAlumnoComponent } from './components/formulario-alumno/formulario-alumno.component';
-import { BusquedaAlumnoComponent } from './components/busqueda-alumno/busqueda-alumno.component';
 import { ListaAlumnosBuenaComponent } from './components/lista-alumnos-buena/lista-alumnos-buena.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { AccesoComponent } from './components/acceso/acceso.component';
 import { authGuard } from './guards/auth.guard';
 import { DniComponent } from './components/dni/dni.component';
+import { BusquedaAlumnoComponent } from './components/busqueda-alumno/busqueda-alumno.component';
 
 //esto es un array, que establece
 //la correspondencia entre
