@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListaAlumnosBuenaComponent } from './lista-alumnos-buena.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from '../../app.routes';
 import { AlumnoService } from '../../services/alumno.service';
 import { Alumno } from '../../model/alumno';
+import { authInterceptor } from '../../services/auth.interceptor';
 
 describe('ListaAlumnosBuenaComponent', () => {
   let component: ListaAlumnosBuenaComponent;
@@ -14,8 +15,8 @@ describe('ListaAlumnosBuenaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListaAlumnosBuenaComponent, HttpClientModule],
-      providers: [provideRouter(routes, withComponentInputBinding())]
+      imports: [ListaAlumnosBuenaComponent],
+      providers: [provideRouter(routes, withComponentInputBinding()), provideHttpClient(withInterceptors([authInterceptor]))]
     })
     .compileComponents();
 
