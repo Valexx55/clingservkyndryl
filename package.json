@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --sourceMap=false --browsers=ChromeHeadless --watch=false",
     "serve:ssr:kyndrylapp": "node dist/kyndrylapp/server/server.mjs"
   },
   "private": true,
@@ -48,4 +48,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.6.2"
   }
+  
 }
