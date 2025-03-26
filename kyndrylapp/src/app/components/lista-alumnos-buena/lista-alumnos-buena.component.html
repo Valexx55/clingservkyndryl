@@ -1,0 +1,79 @@
+<button class="btn btn-primary" routerLink="/formulario">CREAR</button>
+<p>LISTADO DE ALUMNOS </p>
+
+<!--<mat-slide-toggle>Toggle me!</mat-slide-toggle>-->
+
+<div class="listaAlumnos">
+
+    @if (listaPendiente)
+    {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        
+    } 
+    
+
+    @for (alumno of listaAlumnos; track alumno.id)
+{
+
+
+    <div class="card">
+    
+        @if (alumno.fotoHashCode)
+        {
+            <!--<img class="card-img-top img-fluid" alt="Logo persona" src="http://localhost:9090/api/alumnos/obtenerFoto/{{alumno.id}}" >-->
+            <div style="
+            height: 280px !important;
+            background-image: url({{ruta_servidor}}/api/alumnos/obtenerFoto/{{alumno.id}});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          "></div>
+        } @else if (alumno.id%2==0){
+            <div style="
+            height: 280px !important;
+            background-image: url(https://randomuser.me/api/portraits/women/{{alumno.id}}.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          "></div>
+            
+        
+        } @else {
+             <div style="
+            height: 280px !important;
+            background-image: url(assets/sinfoto.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          "></div>
+        }
+    
+        <div class="card-body">
+            <h5 class="card-title"> {{alumno.id}}  {{alumno.nombre | uppercase}} {{alumno.apellido}} </h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email {{alumno.email}}</li>
+                <li class="list-group-item">Edad {{alumno.edad}}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-muted">
+            <p>{{alumno.creadoEn | date: 'medium'}} </p>
+        </div>
+        <button (click)="editarAlumno(alumno)" title="b1" class="btn btn-success" >EDITAR <fa-icon [icon]="faPenFancy"></fa-icon> </button>
+        <button (click)="borrarAlumno(alumno.id)" title="b2" class="btn btn-danger" >BORRAR <fa-icon [icon]="faTrash"></fa-icon></button>
+    </div>
+
+}
+
+<mat-paginator
+    [length]="totalRegistros"
+    [pageSize]="totalPorPagina"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="paginaActual"
+    showFirstLastButtons
+    (page)="paginar($event)"
+></mat-paginator>
+
+</div>
+
+
+
