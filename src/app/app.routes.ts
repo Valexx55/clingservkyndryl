@@ -6,6 +6,7 @@ import { ListaAlumnosBuenaComponent } from './components/lista-alumnos-buena/lis
 import { RegistroComponent } from './components/registro/registro.component';
 import { AccesoComponent } from './components/acceso/acceso.component';
 import { authGuard } from './guards/auth.guard';
+import { DniComponent } from './components/dni/dni.component';
 
 //esto es un array, que establece
 //la correspondencia entre
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {path:'signup', component: RegistroComponent},
   {path:'login', component: AccesoComponent},
   {path:'home', component: AccesoComponent },
-  {path:'', redirectTo: 'home', pathMatch: 'full'}
+  {path:'', redirectTo: 'home', pathMatch: 'full'},
+  {path:'dni', component: DniComponent }
 
 ];
