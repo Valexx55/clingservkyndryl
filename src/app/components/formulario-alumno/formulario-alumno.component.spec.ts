@@ -13,6 +13,7 @@ describe('FormularioAlumnoComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(FormularioAlumnoComponent);
+    //fixture.
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

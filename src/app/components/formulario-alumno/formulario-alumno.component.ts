@@ -4,7 +4,6 @@ import { Alumno } from '../../model/alumno';
 import { AlumnoService } from '../../services/alumno.service';
 import { NgIf } from '@angular/common';
 import { Observer } from 'rxjs';
-import { error } from 'console';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
